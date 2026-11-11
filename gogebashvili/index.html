@@ -1,0 +1,1377 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="dTECHmPala-7g3z5S3Q8HXBg_UOyD0iYFlUOlm2SGV8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>დედა ენა — 150 წელი</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --green: #163d2b;
+    --dark: #102b20;
+    --gold: #d6ad61;
+    --cream: #f5f0e5;
+    --white: #fffdf7;
+}
+
+body {
+    font-family: 'Noto Serif Georgian', serif;
+    background: var(--cream);
+    color: #263c30;
+    overflow-x: hidden;
+}
+
+/* LOADER */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: .7s;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader h1 {
+    font-size: 70px;
+    color: var(--gold);
+    animation: pulse 1.2s infinite alternate;
+}
+
+.loader p {
+    color: white;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+@keyframes pulse {
+    to {
+        transform: scale(1.12);
+        opacity: .6;
+    }
+}
+
+/* PARTICLES */
+
+.particles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: .4;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* NAVBAR */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 17px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(16,43,32,.94);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #ffffff15;
+}
+
+.logo {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 24px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.menu-btn {
+    display: none;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    padding: 125px 20px 65px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 30%, #315c40, transparent 48%),
+        linear-gradient(135deg,#102b20,#1d4933,#102b20);
+    color: white;
+    text-align: center;
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #d6ad6125;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero::before {
+    width: 500px;
+    height: 500px;
+    animation: rotate 30s linear infinite;
+}
+
+.hero::after {
+    width: 680px;
+    height: 680px;
+    animation: rotate 45s linear infinite reverse;
+}
+
+@keyframes rotate {
+    to {
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-label {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 13px;
+    animation: fadeDown 1s both;
+}
+
+.hero h1 {
+    font-size: clamp(40px,8vw,85px);
+    margin: 20px 0 8px;
+    animation: fadeUp 1s both;
+}
+
+.hero h2 {
+    font-size: clamp(20px,4vw,34px);
+    color: var(--gold);
+    margin-bottom: 20px;
+    animation: fadeUp 1.2s both;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 2;
+    color: #e5e8df;
+    font-size: 15px;
+    animation: fadeUp 1.4s both;
+}
+
+.hero-year {
+    margin: 30px 0;
+    font-size: 28px;
+    color: var(--gold);
+    letter-spacing: 8px;
+    font-weight: 700;
+}
+
+.main-button {
+    display: inline-block;
+    padding: 14px 30px;
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+    color: var(--dark);
+    background: var(--gold);
+    text-decoration: none;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.main-button:hover {
+    background: transparent;
+    color: var(--gold);
+    transform: translateY(-4px);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    position: relative;
+    z-index: 1;
+    padding: 85px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(25px,4vw,38px);
+    color: var(--green);
+    margin-bottom: 15px;
+}
+
+.section-line {
+    width: 75px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 40px;
+}
+
+/* QUIZ */
+
+.quiz-section {
+    background: linear-gradient(135deg,#102b20,#1b4831);
+    color: white;
+}
+
+.quiz-section .section-title {
+    color: var(--gold);
+}
+
+.quiz-description {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 35px;
+    line-height: 1.9;
+    color: #e0e6dd;
+}
+
+.quiz-box {
+    max-width: 780px;
+    margin: auto;
+    padding: 35px;
+    border: 1px solid #d6ad6150;
+    border-radius: 20px;
+    background: rgba(255,255,255,.06);
+    box-shadow: 0 20px 60px #00000025;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-size: 14px;
+}
+
+.progress-bar {
+    height: 7px;
+    background: #ffffff25;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 5%;
+    height: 100%;
+    background: var(--gold);
+    border-radius: 20px;
+    transition: .5s;
+}
+
+.question {
+    font-size: clamp(18px,3vw,25px);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.answer {
+    background: #ffffff0d;
+    border: 1px solid #ffffff30;
+    color: white;
+    padding: 16px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .25s;
+    text-align: left;
+}
+
+.answer:hover:not(:disabled) {
+    background: #d6ad6125;
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.answer.correct {
+    background: #267d4c;
+    border-color: #65d98d;
+}
+
+.answer.wrong {
+    background: #963d3d;
+    border-color: #ff8585;
+}
+
+.answer:disabled {
+    cursor: default;
+}
+
+.feedback {
+    min-height: 35px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.next-button {
+    display: block;
+    margin: 15px auto 0;
+    padding: 13px 30px;
+    border: none;
+    border-radius: 30px;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.next-button:hover {
+    transform: scale(1.06);
+    background: #f0c979;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.result-box {
+    text-align: center;
+    padding: 20px;
+}
+
+.result-box h2 {
+    font-size: 35px;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.result-score {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 20px;
+}
+
+.restart-button {
+    padding: 13px 28px;
+    border: none;
+    border-radius: 30px;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* RANDOM ANIMATIONS */
+
+.fx-pop {
+    animation: fxPop .55s ease both;
+}
+
+.fx-slide {
+    animation: fxSlide .6s ease both;
+}
+
+.fx-zoom {
+    animation: fxZoom .6s ease both;
+}
+
+.fx-flip {
+    animation: fxFlip .7s ease both;
+}
+
+.fx-bounce {
+    animation: fxBounce .7s ease both;
+}
+
+.fx-glow {
+    animation: fxGlow .8s ease both;
+}
+
+.fx-spin {
+    animation: fxSpin .7s ease both;
+}
+
+@keyframes fxPop {
+    0% { transform: scale(.5); opacity: 0; }
+    70% { transform: scale(1.08); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fxSlide {
+    from { transform: translateX(-70px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fxZoom {
+    from { transform: scale(1.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fxFlip {
+    from { transform: perspective(500px) rotateY(90deg); opacity: 0; }
+    to { transform: perspective(500px) rotateY(0); opacity: 1; }
+}
+
+@keyframes fxBounce {
+    0% { transform: translateY(-35px); opacity: 0; }
+    60% { transform: translateY(8px); }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fxGlow {
+    0% { opacity: 0; filter: brightness(2); }
+    50% { filter: brightness(1.8); }
+    100% { opacity: 1; filter: brightness(1); }
+}
+
+@keyframes fxSpin {
+    from { transform: rotate(-12deg) scale(.8); opacity: 0; }
+    to { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+/* HISTORY */
+
+.history-section {
+    background: var(--cream);
+}
+
+.history-card {
+    max-width: 900px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px #0000000c;
+    border-left: 5px solid var(--gold);
+}
+
+.history-card p {
+    line-height: 2.1;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.history-card strong {
+    color: var(--green);
+}
+
+/* TIMELINE */
+
+.timeline-section {
+    background: #eae4d6;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gold);
+}
+
+.timeline-item {
+    position: relative;
+    padding: 0 0 35px 60px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 7px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 3px solid var(--gold);
+}
+
+.timeline-item h3 {
+    color: var(--green);
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.timeline-item p {
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+/* STATS */
+
+.stats-section {
+    background: var(--green);
+    color: white;
+}
+
+.stats-section .section-title {
+    color: var(--gold);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.stat {
+    padding: 25px;
+    border: 1px solid #ffffff30;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.stat:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+}
+
+.stat h2 {
+    color: var(--gold);
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.stat p {
+    font-size: 13px;
+}
+
+/* AUTHORS */
+
+.authors-section {
+    background: var(--cream);
+    text-align: center;
+}
+
+.authors-card {
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px #00000010;
+}
+
+.authors-card h3 {
+    color: var(--green);
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.author {
+    padding: 12px;
+    border-bottom: 1px solid #eee5d6;
+}
+
+.author:last-child {
+    border-bottom: none;
+}
+
+.author p {
+    color: #777;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    position: relative;
+    z-index: 1;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 750px) {
+    nav {
+        padding: 15px 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    nav a {
+        margin: 12px 0;
+    }
+
+    section {
+        padding: 65px 5%;
+    }
+
+    .quiz-box {
+        padding: 22px 15px;
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .hero::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    .hero::after {
+        width: 400px;
+        height: 400px;
+    }
+
+    .hero-year {
+        font-size: 21px;
+        letter-spacing: 4px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader" id="loader">
+    <h1>ა</h1>
+    <p>იტვირთება ქართული ენის ისტორია...</p>
+</div>
+
+<div class="particles" id="particles"></div>
+
+<nav>
+    <div class="logo">დედა ენა</div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#home" onclick="closeMenu()">მთავარი</a>
+        <a href="#quiz" onclick="closeMenu()">ქვიზი</a>
+        <a href="#history" onclick="closeMenu()">ისტორია</a>
+        <a href="#timeline" onclick="closeMenu()">ქრონოლოგია</a>
+        <a href="#authors" onclick="closeMenu()">ავტორები</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="hero-label">ქართული ენისა და განათლების ისტორია</div>
+
+        <h1>დედა ენა</h1>
+
+        <h2>150 წელი</h2>
+
+        <p>
+            წიგნი, რომელმაც ქართველ ბავშვებს წერა-კითხვა შეასწავლა
+            და ქართული განათლების ისტორიაში განსაკუთრებული ადგილი დაიკავა.
+        </p>
+
+        <div class="hero-year">1876 — 2026</div>
+
+        <a href="#quiz" class="main-button">შეამოწმე შენი ცოდნა</a>
+
+    </div>
+</header>
+
+<!-- QUIZ -->
+
+<section class="quiz-section" id="quiz">
+
+    <h2 class="section-title">შეამოწმე შენი ცოდნა</h2>
+
+    <div class="section-line"></div>
+
+    <p class="quiz-description">
+        უპასუხე 20 შეკითხვას იაკობ გოგებაშვილისა და „დედა ენის“ შესახებ.
+        ყოველი პასუხის შემდეგ ახალი ანიმაცია გამოჩნდება!
+    </p>
+
+    <div class="quiz-box" id="quizBox">
+
+        <div id="quizContent">
+
+            <div class="quiz-top">
+                <span id="questionNumber">კითხვა 1 / 20</span>
+                <span id="score">ქულა: 0</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <h3 class="question" id="question">
+                მზად ხარ ქვიზის დასაწყებად?
+            </h3>
+
+            <div class="answers" id="answers"></div>
+
+            <div class="feedback" id="feedback"></div>
+
+            <button class="next-button hidden" id="nextButton" onclick="nextQuestion()">
+                შემდეგი კითხვა →
+            </button>
+
+        </div>
+
+        <div class="result-box hidden" id="resultBox">
+
+            <h2>ქვიზი დასრულებულია!</h2>
+
+            <p>შენი შედეგია:</p>
+
+            <div class="result-score" id="finalScore">0 / 20</div>
+
+            <p id="resultMessage"></p>
+
+            <button class="restart-button" onclick="restartQuiz()">
+                თავიდან დაწყება ↻
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- HISTORY -->
+
+<section class="history-section" id="history">
+
+    <h2 class="section-title">„დედა ენის“ ისტორია</h2>
+
+    <div class="section-line"></div>
+
+    <div class="history-card">
+
+        <p>
+            <strong>„დედა ენა“</strong> იაკობ გოგებაშვილის მიერ შექმნილი
+            ქართული სახელმძღვანელოა, რომელმაც მნიშვნელოვანი როლი ითამაშა
+            ქართველი ბავშვების განათლებაში.
+        </p>
+
+        <p>
+            წიგნის პირველი გამოცემა 1876 წელს გამოვიდა.
+            მასში თავმოყრილი იყო ანბანი, საკითხავი ტექსტები,
+            მოთხრობები და სასწავლო მასალა, რომლებიც ბავშვებს
+            ქართული ენის შესწავლაში ეხმარებოდა.
+        </p>
+
+        <p>
+            იაკობ გოგებაშვილი ცდილობდა, სწავლა ბავშვებისთვის
+            საინტერესო, გასაგები და სახალისო ყოფილიყო.
+            მისი ნაშრომი ქართული განათლების ისტორიაში
+            დღემდე განსაკუთრებულ მნიშვნელობას ინარჩუნებს.
+        </p>
+
+        <p>
+            <strong>2026 წელს „დედა ენის“ პირველი გამოცემიდან
+            150 წელი სრულდება.</strong>
+        </p>
+
+    </div>
+</section>
+
+<!-- TIMELINE -->
+
+<section class="timeline-section" id="timeline">
+
+    <h2 class="section-title">მნიშვნელოვანი თარიღები</h2>
+
+    <div class="section-line"></div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <h3>1840 წელი</h3>
+            <p>დაიბადა იაკობ გოგებაშვილი სოფელ ვარიანში.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1876 წელი</h3>
+            <p>გამოიცა „დედა ენის“ პირველი გამოცემა.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1879 წელი</h3>
+            <p>დაარსდა ქართველთა შორის წერა-კითხვის გამავრცელებელი საზოგადოება.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1912 წელი</h3>
+            <p>გარდაიცვალა იაკობ გოგებაშვილი, რომლის საგანმანათლებლო მოღვაწეობამ დიდი კვალი დატოვა.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>2026 წელი</h3>
+            <p>„დედა ენის“ პირველი გამოცემიდან 150 წელი გავიდა.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- STATS -->
+
+<section class="stats-section">
+
+    <h2 class="section-title">150 წლის ისტორია</h2>
+
+    <div class="section-line"></div>
+
+    <div class="stats">
+
+        <div class="stat">
+            <h2>150</h2>
+            <p>წელი პირველი გამოცემიდან</p>
+        </div>
+
+        <div class="stat">
+            <h2>1876</h2>
+            <p>პირველი გამოცემის წელი</p>
+        </div>
+
+        <div class="stat">
+            <h2>2026</h2>
+            <p>იუბილეს წელი</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- AUTHORS -->
+
+<section class="authors-section" id="authors">
+
+    <h2 class="section-title">ავტორები</h2>
+
+    <div class="section-line"></div>
+
+    <div class="authors-card">
+
+        <h3>პროექტზე იმუშავეს</h3>
+
+        <div class="author">
+            <strong>იაკობ ხელაშვილი</strong>
+            <p>მეცხრე კლასი</p>
+        </div>
+
+        <div class="author">
+            <strong>ილია ჩანქსელიანი</strong>
+            <p>მეცხრე კლასი</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <span>დედა ენა — 150 წელი</span></p>
+    <p style="margin-top:10px;font-size:12px;">
+        ქართული ენა ჩვენი ისტორია და სიამაყეა.
+    </p>
+</footer>
+
+<script>
+
+/* LOADER */
+
+window.addEventListener("load", function() {
+    setTimeout(function() {
+        document.getElementById("loader").classList.add("hide");
+    }, 700);
+});
+
+/* MOBILE MENU */
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+function closeMenu() {
+    document.getElementById("navLinks").classList.remove("active");
+}
+
+/* PARTICLES */
+
+const particles = document.getElementById("particles");
+
+for (let i = 0; i < 35; i++) {
+    let particle = document.createElement("div");
+    particle.className = "particle";
+    particle.style.left = Math.random() * 100 + "%";
+    particle.style.animationDelay = Math.random() * 10 + "s";
+    particle.style.animationDuration = (6 + Math.random() * 10) + "s";
+    particle.style.width = (2 + Math.random() * 4) + "px";
+    particle.style.height = particle.style.width;
+    particles.appendChild(particle);
+}
+
+/* QUIZ QUESTIONS */
+
+const questions = [
+
+    {
+        question: "ვინ არის „დედა ენის“ ავტორი?",
+        answers: ["ილია ჭავჭავაძე", "აკაკი წერეთელი", "იაკობ გოგებაშვილი", "ვაჟა-ფშაველა"],
+        correct: 2
+    },
+
+    {
+        question: "რომელ წელს გამოიცა „დედა ენა“ პირველად?",
+        answers: ["1860", "1876", "1885", "1900"],
+        correct: 1
+    },
+
+    {
+        question: "რომელ სოფელში დაიბადა იაკობ გოგებაშვილი?",
+        answers: ["ვარიანში", "სვირში", "საგურამოში", "ყვარელში"],
+        correct: 0
+    },
+
+    {
+        question: "რომელი ნაწარმოებია იაკობ გოგებაშვილის?",
+        answers: ["ოთარაანთ ქვრივი", "განდეგილი", "იავნანამ რა ჰქმნა?!", "სტუმარ-მასპინძელი"],
+        correct: 2
+    },
+
+    {
+        question: "რომელ წელს დაიბადა იაკობ გოგებაშვილი?",
+        answers: ["1837", "1840", "1850", "1860"],
+        correct: 1
+    },
+
+    {
+        question: "რა დანიშნულება ჰქონდა „დედა ენას“?",
+        answers: ["მხოლოდ გართობა", "ბავშვებისთვის წერა-კითხვის სწავლება", "ისტორიის სწავლება", "მხოლოდ პოეზიის სწავლება"],
+        correct: 1
+    },
+
+    {
+        question: "რომელ საუკუნეში გამოიცა „დედა ენა“?",
+        answers: ["XVII", "XVIII", "XIX", "XX"],
+        correct: 2
+    },
+
+    {
+        question: "რომელ ქალაქში სწავლობდა გოგებაშვილი სასულიერო აკადემიაში?",
+        answers: ["მოსკოვში", "კიევში", "პარიზში", "რომში"],
+        correct: 1
+    },
+
+    {
+        question: "რომელ წელს გარდაიცვალა იაკობ გოგებაშვილი?",
+        answers: ["1900", "1905", "1912", "1920"],
+        correct: 2
+    },
+
+    {
+        question: "რას უკავშირდება იაკობ გოგებაშვილის სახელი?",
+        answers: ["ქართული განათლების განვითარებას", "მხოლოდ მხატვრობას", "მუსიკის შექმნას", "სპორტის განვითარებას"],
+        correct: 0
+    },
+
+    {
+        question: "რომელ წელს დაარსდა ქართველთა შორის წერა-კითხვის გამავრცელებელი საზოგადოება?",
+        answers: ["1876", "1879", "1885", "1890"],
+        correct: 1
+    },
+
+    {
+        question: "რა იყო გოგებაშვილის მთავარი მიზანი?",
+        answers: ["ბავშვების განათლება", "მხოლოდ მოგზაურობა", "სპორტის განვითარება", "მხოლოდ ლიტერატურის წერა"],
+        correct: 0
+    },
+
+    {
+        question: "რა ეხმარებოდა ბავშვებს „დედა ენაში“ სწავლაში?",
+        answers: ["სურათები და საკითხავი ტექსტები", "მხოლოდ რთული ფორმულები", "მხოლოდ უცხო სიტყვები", "მხოლოდ რუკები"],
+        correct: 0
+    },
+
+    {
+        question: "რომელი საგნის სწავლებას ემსახურებოდა „დედა ენა“?",
+        answers: ["მათემატიკის", "ქართული ენის", "ფიზიკის", "ქიმიის"],
+        correct: 1
+    },
+
+    {
+        question: "რა ჰქვია გოგებაშვილის ცნობილ ნაწარმოებს, რომელშიც პატარა ქეთო იხსენიება?",
+        answers: ["იავნანამ რა ჰქმნა?!", "განდეგილი", "ალუდა ქეთელაური", "კაცია-ადამიანი?!"],
+        correct: 0
+    },
+
+    {
+        question: "რომელ საუკუნეში დაიბადა იაკობ გოგებაშვილი?",
+        answers: ["XVIII საუკუნეში", "XIX საუკუნეში", "XX საუკუნეში", "XVII საუკუნეში"],
+        correct: 1
+    },
+
+    {
+        question: "რომელ ქალაქში მდებარეობს კიევის სასულიერო აკადემია?",
+        answers: ["თბილისში", "კიევში", "ბათუმში", "ქუთაისში"],
+        correct: 1
+    },
+
+    {
+        question: "რა როლი ჰქონდა „დედა ენას“ ქართულ საზოგადოებაში?",
+        answers: ["განათლების გავრცელება", "მხოლოდ გართობა", "ვაჭრობის განვითარება", "სპორტული შეჯიბრებები"],
+        correct: 0
+    },
+
+    {
+        question: "რას ემსახურებოდა გოგებაშვილის საგანმანათლებლო საქმიანობა?",
+        answers: ["ახალგაზრდების განათლებას", "მხოლოდ მოგზაურობას", "მხოლოდ სამხედრო საქმეს", "მხოლოდ თეატრს"],
+        correct: 0
+    },
+
+    {
+        question: "რა მნიშვნელობა აქვს „დედა ენას“ დღეს?",
+        answers: ["ისტორიული და საგანმანათლებლო მნიშვნელობა", "არანაირი მნიშვნელობა", "მხოლოდ გასართობი მნიშვნელობა", "მხოლოდ სპორტული მნიშვნელობა"],
+        correct: 0
+    }
+
+];
+
+/* QUIZ VARIABLES */
+
+let current = 0;
+let points = 0;
+let answered = false;
+let lastEffect = "";
+
+const effects = [
+    "pop",
+    "slide",
+    "zoom",
+    "flip",
+    "bounce",
+    "glow",
+    "spin"
+];
+
+/* RANDOM ANIMATION */
+
+function playRandomEffect() {
+
+    let available = effects.filter(effect => effect !== lastEffect);
+
+    let selected = available[Math.floor(Math.random() * available.length)];
+
+    lastEffect = selected;
+
+    let feedback = document.getElementById("feedback");
+    let answers = document.getElementById("answers");
+
+    feedback.className = "feedback";
+    answers.className = "answers";
+
+    void feedback.offsetWidth;
+
+    feedback.classList.add("fx-" + selected);
+    answers.classList.add("fx-" + selected);
+}
+
+/* SHOW QUESTION */
+
+function showQuestion() {
+
+    answered = false;
+
+    const q = questions[current];
+
+    document.getElementById("question").textContent = q.question;
+
+    document.getElementById("questionNumber").textContent =
+        "კითხვა " + (current + 1) + " / " + questions.length;
+
+    document.getElementById("score").textContent =
+        "ქულა: " + points;
+
+    document.getElementById("progress").style.width =
+        ((current + 1) / questions.length * 100) + "%";
+
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("feedback").className = "feedback";
+
+    document.getElementById("answers").className = "answers";
+
+    document.getElementById("nextButton").classList.add("hidden");
+
+    const answersDiv = document.getElementById("answers");
+
+    answersDiv.innerHTML = "";
+
+    q.answers.forEach((answer, index) => {
+
+        const button = document.createElement("button");
+
+        button.className = "answer";
+        button.textContent = answer;
+
+        button.onclick = function() {
+            checkAnswer(index, button);
+        };
+
+        answersDiv.appendChild(button);
+
+    });
+
+}
+
+/* CHECK ANSWER */
+
+function checkAnswer(index, button) {
+
+    if (answered) return;
+
+    answered = true;
+
+    const q = questions[current];
+
+    const buttons = document.querySelectorAll(".answer");
+
+    buttons.forEach(btn => {
+        btn.disabled = true;
+    });
+
+    const feedback = document.getElementById("feedback");
+
+    if (index === q.correct) {
+
+        points++;
+
+        button.classList.add("correct");
+
+        feedback.textContent = "სწორია! შესანიშნავი პასუხია! ✓";
+
+        feedback.style.color = "#75e69b";
+
+    } else {
+
+        button.classList.add("wrong");
+
+        buttons[q.correct].classList.add("correct");
+
+        feedback.textContent =
+            "არასწორია! სწორი პასუხია: " + q.answers[q.correct];
+
+        feedback.style.color = "#ff9999";
+
+    }
+
+    document.getElementById("score").textContent =
+        "ქულა: " + points;
+
+    playRandomEffect();
+
+    document.getElementById("nextButton").classList.remove("hidden");
+
+    if (current === questions.length - 1) {
+        document.getElementById("nextButton").textContent = "შედეგის ნახვა →";
+    } else {
+        document.getElementById("nextButton").textContent = "შემდეგი კითხვა →";
+    }
+
+}
+
+/* NEXT QUESTION */
+
+function nextQuestion() {
+
+    if (!answered) return;
+
+    current++;
+
+    if (current < questions.length) {
+
+        showQuestion();
+
+    } else {
+
+        showResult();
+
+    }
+
+}
+
+/* SHOW RESULT */
+
+function showResult() {
+
+    document.getElementById("quizContent").classList.add("hidden");
+
+    document.getElementById("resultBox").classList.remove("hidden");
+
+    document.getElementById("finalScore").textContent =
+        points + " / " + questions.length;
+
+    let message = "";
+
+    if (points >= 16) {
+        message = "შესანიშნავია! ქართული ენის ისტორია ძალიან კარგად გცოდნია!";
+    } else if (points >= 12) {
+        message = "ძალიან კარგი შედეგია! კიდევ ცოტა და სრულყოფილი ცოდნა გექნება.";
+    } else if (points >= 8) {
+        message = "კარგი მცდელობაა! კიდევ ერთხელ გაეცანი ისტორიას.";
+    } else {
+        message = "არაუშავს! თავიდან სცადე და გაიუმჯობესე შედეგი.";
+    }
+
+    document.getElementById("resultMessage").textContent = message;
+
+}
+
+/* RESTART */
+
+function restartQuiz() {
+
+    current = 0;
+    points = 0;
+    answered = false;
+    lastEffect = "";
+
+    document.getElementById("quizContent").classList.remove("hidden");
+
+    document.getElementById("resultBox").classList.add("hidden");
+
+    document.getElementById("nextButton").textContent = "შემდეგი კითხვა →";
+
+    showQuestion();
+
+}
+
+/* START QUIZ */
+
+showQuestion();
+
+</script>
+
+</body>
+</html>
